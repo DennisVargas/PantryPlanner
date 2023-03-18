@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  mongodb:
+    image: mongo:4.4
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    volumes:
+      - mongodb-data:/data/db
+    ports:
+      - "27017:27017"
+
+  pantry-planner:
+    build: .
+    container_name: pantry-planner
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://root:rootpassword@mongodb:27017/pantry-planner
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+
+volumes:
+  mongodb-data:
+    driver: local
