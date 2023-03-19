@@ -1,0 +1,13 @@
+# Dockerfile.gradle.dev defines 
+
+# Use the official Gradle image as the base image
+FROM gradle:latest
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the project files into the container
+COPY . .
+
+# Start a shell terminal inside the container
+CMD ["/bin/bash"]

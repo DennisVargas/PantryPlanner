@@ -1,3 +1,5 @@
+# Dockerfile Defines the Pantry-Panner Docker Image
+
 # Use a Java runtime as the base image 
 FROM eclipse-temurin:17
 
