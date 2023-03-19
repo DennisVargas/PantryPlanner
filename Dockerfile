@@ -1,5 +1,11 @@
-FROM gradle:jdk17
-WORKDIR /app
-COPY /build/libs /app
-# RUN gradle clean build --scan --stacktrace --info
-CMD ["java","-jar","PantryPlanner-0.0.1-SNAPSHOT.jar"]
+# Use a Java runtime as the base image 
+FROM eclipse-temurin:17
+
+# Set the working directory inside the container 
+WORKDIR /app 
+
+# Copy only the necessary files for running the application 
+COPY build/libs/ . 
+
+# Set the command to start the application 
+CMD ["java", "-jar", "PantryPlanner-0.0.1-SNAPSHOT.jar"]
