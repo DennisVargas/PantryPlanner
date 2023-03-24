@@ -7,7 +7,7 @@ skinparam packageStyle rectangle
 actor User
 actor Database
 
-rectangle "Add Food Item"{
+rectangle "Pantry Planner Client"{
     usecase "Press add item button" as addButton
     usecase "Enter the Name, Description, Quantity, Exp. Date, Brand" as addInfo
     usecase "Press save button" as saveButton
