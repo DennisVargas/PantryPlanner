@@ -1,7 +1,7 @@
 # Use cases for Pantry Planner
 
 ~~1. Add ingredient to pantry~~
-2. Remove ingredient from pantry
+~~2. Remove ingredient from pantry~~
 3. Edit ingredient in pantry
 4. Search for ingredient in pantry
 5. Add recipe to cookbook
