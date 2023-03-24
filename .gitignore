@@ -1,6 +1,7 @@
+docs/diagram/.$*
+docs/diagram/test.puml
 HELP.md
 .gradle
-gradle-import*
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
