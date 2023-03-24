@@ -1,0 +1,24 @@
+@startuml AddFoodItemUseCase
+
+left to right direction
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+actor User
+actor Database
+
+rectangle "Add Food Item"{
+    usecase "Press add item button" as addButton
+    usecase "Enter the Name, Description, Quantity, Exp. Date, Brand" as addInfo
+    usecase "Press save button" as saveButton
+    usecase "Store data" as saveData
+    usecase "Show confirmation or error message" as sendResult
+}
+
+:User: --> (addButton)
+:User: --> (addInfo)
+:User: --> (saveButton)
+(saveData) --> :Database:
+(sendResult) <-- :Database:
+
+@enduml
