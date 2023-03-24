@@ -32,9 +32,9 @@ import com.mongodb.client.MongoClients;
 public class MongoDBConfig {
     
 	/**
-	 *	<h1>
+	 *	<h3>
 	 *		Creates and configures a {@link MongoClient} bean that connects to a MongoDB instance located at the specified address and port.
-	 *	</h1>
+	 *	</h3>
 	 * 		
 	 * 	<ul>
 	 *		<li> 
@@ -55,8 +55,11 @@ public class MongoDBConfig {
 		
 //		String connectionAddress = "mongodb://localhost:27017/pantry-planner"
 		String uri = System.getenv("SPRING_DATA_MONGODB_URI");
-		if (uri == null)
-			uri = "mongodb://root:rootpassword@mongodb:27017/pantry-planner";
+		if (uri == null){
+			// uri = "mongodb://root:rootpassword@mongodb:27017/pantry-planner";
+			uri = "mongodb://root:rootpassword@0.0.0.0:27017/pantry-planner";
+		}
+			
         ConnectionString connectionString = 
         		new ConnectionString(uri);
         
