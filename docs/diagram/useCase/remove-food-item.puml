@@ -1,0 +1,43 @@
+@startuml RemoveFoodItemUseCase
+
+left to right direction
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+User <<Human>>
+Database <<System>>
+
+
+rectangle "PantryPlanner - Inventory View"{
+    usecase "Select Items for Removal" as selItem
+    usecase "Select Remove Button" as remBut
+    usecase "Confirm User Selection of Remove" as confRem
+    usecase "Confirm or Decline Removal" as userConf
+    usecase "Remove Items by Unique IDs" as remItem
+    usecase "Send Remove Status Message" as sendStatus
+}
+rectangle "PantryPlanner - Item View"{
+    usecase "Select Remove Button" as remBut2
+    usecase "Confirm User Selection of Remove" as confRem2
+    usecase "Confirm or Decline Removal" as userConf2
+    usecase "Remove Items by Unique IDs" as remItem2
+    usecase "Send Remove Status Message" as sendStatus2
+}
+
+
+User --> (selItem)
+User --> (remBut)
+User <-- (confRem)
+User --> (userConf)
+(userConf) --> (remItem) : Confirmed
+(remItem) --> Database
+(sendStatus) <-- Database
+
+User --> remBut2
+User <-- confRem2
+User --> (userConf2)
+(userConf2) --> (remItem2) : Confirmed
+(remItem2) --> Database
+(sendStatus2) <-- Database
+
+@enduml
