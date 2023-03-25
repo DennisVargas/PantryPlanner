@@ -1,4 +1,4 @@
-@startuml AddFoodItemUseCase
+@startuml AddItemUseCase
 
 left to right direction
 skinparam actorStyle awesome
