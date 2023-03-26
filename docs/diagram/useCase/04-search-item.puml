@@ -1,0 +1,27 @@
+@startuml AddItemUseCase
+
+left to right direction
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+actor User
+actor Database
+
+rectangle "Pantry Planner - Home or Inventory View"{
+    usecase "Press Search Bar" as searchBar
+    usecase "Edit Search Entry" as enterSearch
+    (Confirm Search) as confSearch
+    (Build and Send Search Request) as sendReq
+    (Send Results) as sendResult
+    (Show Results) as resultScreen
+}
+
+User --> searchBar
+User --> enterSearch
+User --> confSearch
+confSearch --> sendReq
+sendReq --> Database
+sendResult <-- Database
+resultScreen <-- sendResult
+
+@enduml
