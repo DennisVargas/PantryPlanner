@@ -1,4 +1,5 @@
 @startuml AddItemUseCase
+' Pantry Planner Add Item use case.'
 
 left to right direction
 skinparam actorStyle awesome
@@ -7,18 +8,28 @@ skinparam packageStyle rectangle
 actor User
 actor Database
 
-rectangle "Pantry Planner Client"{
-    usecase "Press add item button" as addButton
-    usecase "Enter the Name, Description, Quantity, Exp. Date, Brand" as addInfo
-    usecase "Press save button" as saveButton
+rectangle "Add Item - Home Screen"{
+    usecase "Press Add Item Button" as addButton
+    usecase "Show Add Item Form" as showForm
+    usecase "Edit Form" as addInfo
+    usecase "Press Save Button" as saveButton
+    usecase "Ask for Save Confirmation" as saveConf
+    usecase "Confirm Save" as confSave
     usecase "Store data" as saveData
-    usecase "Show confirmation or error message" as sendResult
+    usecase "Send Confirmation Result" as sendResult
+    usecase "Show Save Result" as showResult
 }
 
-:User: --> (addButton)
-:User: --> (addInfo)
-:User: --> (saveButton)
-(saveData) --> :Database:
-(sendResult) <-- :Database:
+User --> addButton
+User <-- showForm
+User --> addInfo
+User --> saveButton
+User <-- saveConf
+User --> confSave
+confSave --> saveData
+saveData --> Database
+sendResult <-- Database
+showResult <-- sendResult
+User <-- showResult
 
 @enduml
