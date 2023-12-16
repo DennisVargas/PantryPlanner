@@ -1,4 +1,5 @@
 # Pantry Planner
+"Early Prototype: This is a glimpse into the future! Although it's currently a basic Dockerized Spring server with MongoDB accessible at localhost, we're actively developing powerful features. Keep an eye out for the upcoming beta version!" 👨🏽‍💻🌱
 
 ## Description
 
