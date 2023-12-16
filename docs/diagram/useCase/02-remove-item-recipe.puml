@@ -1,0 +1,29 @@
+@startuml RemoveItemRecipeUseCase
+
+left to right direction
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+User <<Human>>
+Database <<System>>
+
+
+rectangle "Inventory or Recipe View"{
+    usecase "Select Item/Recipe(s) for Removal" as selItem
+    usecase "Press Remove Button" as remBut
+    usecase "Prompt User Confirm Remove" as confRem
+    usecase "Confirm or Decline Removal" as userConf
+    usecase "Prepare and Send\n Remove Item Message" as sendRemMsg
+    usecase "Show Remove Status Message" as sendStatus
+}
+
+User --> selItem
+User --> remBut
+User <-- confRem
+User --> userConf
+userConf --> sendRemMsg : Confirmed
+sendRemMsg --> Database
+sendStatus <-- Database
+
+
+@enduml

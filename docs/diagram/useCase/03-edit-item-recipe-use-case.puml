@@ -1,4 +1,4 @@
-@startuml AddItemUseCase
+@startuml EditItemRecipeUseCase
 
 left to right direction
 skinparam actorStyle awesome
@@ -7,9 +7,9 @@ skinparam packageStyle rectangle
 actor User
 actor Database
 
-rectangle "Pantry Planner Item View"{
-    usecase "Press edit item button" as editButton
-    usecase "Send Edit Mode Confirmation" as editModeConf
+rectangle "Item or Recipe View"{
+    usecase "Press Edit Button" as editButton
+    usecase "Show Edit Mode Confirmation" as editModeConf
     usecase "Confirm Edit Mode" as confMode
     usecase "Edit the fields" as editInfo
     usecase "Press save button" as saveButton
@@ -19,15 +19,15 @@ rectangle "Pantry Planner Item View"{
     usecase "Send result of update" as sendResult
 }
 
-User --> (editButton)
+User --> editButton
 User <-- editModeConf
-User --> (confMode)
-User --> (editInfo)
+User --> confMode
+User --> editInfo
 User --> saveButton
 User <-- saveConfPrompt
 User --> saveConf
 saveConf --> updateDB : confirmed
 updateDB --> Database
-(sendResult) <-- Database
+sendResult <-- Database
 
 @enduml

@@ -1,4 +1,4 @@
-@startuml AddItemUseCase
+@startuml AddItemRecipeUseCase
 ' Pantry Planner Add Item use case.'
 
 left to right direction
@@ -8,19 +8,23 @@ skinparam packageStyle rectangle
 actor User
 actor Database
 
-rectangle "Add Item - Home Screen"{
-    usecase "Press Add Item Button" as addButton
-    usecase "Show Add Item Form" as showForm
-    usecase "Edit Form" as addInfo
-    usecase "Press Save Button" as saveButton
-    usecase "Ask for Save Confirmation" as saveConf
-    usecase "Confirm Save" as confSave
-    usecase "Store data" as saveData
-    usecase "Send Confirmation Result" as sendResult
-    usecase "Show Save Result" as showResult
+rectangle "Home Screen\n Add Item, Recipe"{
+    (Press Add Button) as addButton
+    (Show Selection Screen) as selMenu
+    (Select Add Item or Recipe) as selOption
+    (Show Add Item or Recipe Form) as showForm
+    (Fill Out Form Information) as addInfo
+    (Press Save Button) as saveButton
+    (Ask for Save Confirmation) as saveConf
+    (Confirm Save) as confSave
+    (Prepare and Send \nAdd Message to Database) as saveData
+    (Send Confirmation Result) as sendResult
+    (Show Save Result) as showResult
 }
 
 User --> addButton
+User <-- selMenu
+User --> selOption
 User <-- showForm
 User --> addInfo
 User --> saveButton
